@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import useInputs from './useInputs';
 
 const Info = () => {
@@ -7,6 +7,15 @@ const Info = () => {
     nickname: ''
   });
   const { name, nickname } = state;
+
+  useEffect(() => {
+    console.log('effect')
+    console.log(name)
+    return () => {
+      console.log('clean Up')
+      console.log(name)
+    }
+  },[name]) 
 
   return (
     <div>
